@@ -1,0 +1,445 @@
+.about_company {
+	display: block;
+
+	&_header {
+		padding: 80px 0;
+
+		p {
+			@include paragraph_border(45px, $secondary_text_color);
+		}
+
+		h2 {
+			color: $secondary_color;
+			font-size: 44px;
+			font-weight: 600;
+		}
+	}
+
+	&_body {
+		padding-top: 40px;
+		padding-bottom: 150px;
+
+		img{
+			height: 100%;
+		}
+	}
+
+	&_right {
+
+		h2,
+		h5 {
+			font-weight: 600;
+			line-height: 1.6;
+		}
+
+		a {
+			@include global_btn($secondary_color, #fff, $secondary_color)
+		}
+	}
+
+}
+
+// services
+.services {
+	background: #e1f4f2;
+	padding-top: 150px;
+	padding-bottom: 300px;
+	display: block;
+
+	&_header {
+		p {
+			@include paragraph_border(40px, $secondary_text_color);
+		}
+
+		h2 {
+			font-size: 48px;
+		}
+
+	}
+}
+
+// action
+.action {
+	transform: translateY(-50%);
+
+	&_body {
+		background: $primary_color;
+		padding: 78px 0 76px 28px;
+
+		.action {
+			@include paragraph_border(45px, $primary_text_color);
+			text-transform: capitalize;
+		}
+
+		h2 {
+			color: #fff;
+			font-size: 48px;
+		}
+	}
+
+	&__call {
+		background: $secondary_color;
+		padding: 20px 0;
+
+		.call {
+			h6 {
+				color: $primary_text_color;
+			}
+
+			p {
+				a {
+					color: #fff;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+// team member
+.team {
+	&_header {
+		p {
+			@include paragraph_border(45px, $secondary_text_color)
+		}
+
+		h2 {
+			font-size: 48px;
+			color: $primary_color;
+		}
+	}
+}
+
+// video
+.video {
+	.left {
+		background: $primary_color;
+		display: grid;
+		place-content: center;
+	}
+
+	&_intro {
+		max-width: 400px;
+		margin-right: 60px;
+
+		p {
+			@include paragraph_border(45px, $primary_text_color);
+		}
+
+		h2 {
+			font-size: 44px;
+			font-weight: 600;
+			color: #fff;
+			line-height: 1.2;
+		}
+	}
+
+	&_btn{
+		@include global_btn($primary_color, #fff, #fff)
+	}
+
+	.right {
+		position: relative;
+
+		&_play {
+			a {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				height: 150px;
+				width: 150px;
+				display: grid;
+				place-content: center;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					border-radius: 50%;
+					border: 2px dashed #fff;
+				}
+
+				&:hover {
+					&::before {
+						animation: infiniteRotate 15s linear infinite;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// counter
+
+.counter {
+	padding: 170px 0;
+
+	.row {
+		background: rgba($primary_text_color, .4);
+	}
+
+	&_body {
+		position: relative;
+		height: 300px;
+		display: grid;
+		place-content: center;
+
+		.count {
+			font-family: "Roboto", sans-serif;
+			font-size: 48px;
+			font-weight: 500;
+			color: $primary_color;
+			text-align: center;
+
+			&_plus {
+				font-size: 22px;
+				font-weight: 500;
+				padding: 0 5px;
+				color: $primary_color;
+			}
+		}
+
+		p {
+			@include paragraph_border(35px, #777);
+		}
+
+
+	}
+
+	&_border {
+		position: absolute;
+		height: 100%;
+		width: 1px;
+		background: rgba($primary_color, .1);
+		right: 0;
+		top: 0;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -3px;
+			height: 7px;
+			width: 7px;
+			border-radius: 50%;
+			background: $primary_color;
+			animation: counter_border linear infinite;
+		}
+
+
+	}
+
+	&_border1 {
+		&::after {
+			animation-duration: 9s;
+		}
+	}
+
+	&_border2 {
+		&::after {
+			animation-duration: 10s;
+		}
+	}
+
+	&_border3 {
+		&::after {
+			animation-duration: 11s;
+		}
+	}
+}
+
+
+// news
+.news {
+	padding: 170px 0;
+
+	&_header{
+		padding-bottom: 70px;
+		p{
+			@include paragraph_border(45px, #777);
+		}
+
+		h2{
+			color: $primary_color;
+			font-size: 48px;
+		}
+	}
+
+	&_card {
+		background: rgba($primary_text_color, .4);
+		padding: 40px;
+		position: relative;
+		overflow: hidden;
+		@include transiction-ease;
+
+		span {
+			a {
+				color: #777;
+				@include transiction-ease;
+			}
+		}
+
+		span,
+		h4 {
+			color: $primary_color;
+			margin-top: 20px;
+			line-height: 1.6;
+			font-weight: 600;
+			@include transiction-ease;
+		}
+
+		h4 {
+			font-size: 1.4rem;
+		}
+
+		p {
+			color: #777;
+			@include transiction-ease;
+		}
+
+		.news_btn {
+			margin-right: auto;
+			@include global_btn($primary_color, #fff, #fff);
+		}
+
+		&::after {
+			content: '';
+			background-color: $primary_color;
+			position: absolute;
+			bottom: 0%;
+			left: 0;
+			height: 0%;
+			width: 100%;
+			opacity: 0;
+			@include transiction-ease;
+			z-index: -1;
+
+		}
+
+		&.news_card_hover {
+			background-color: transparent;
+
+			span {
+				a {
+					color: $primary_text_color;
+
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+
+			span,
+			h4 {
+				color:
+					#fff;
+			}
+
+			p {
+				color: $primary_text_color;
+			}
+
+			&::after {
+				height: 100%;
+				opacity: 1;
+				top: 0;
+				bottom: inherit;
+			}
+		}
+
+		&_right {
+			display: grid;
+			place-content: center;
+		}
+
+	}
+}
+
+// footer
+footer {
+	background-color: $primary_color;
+	padding: 100px 0;
+	color: #fff;
+
+	.footer {
+		&_body {
+			padding-top: 100px;
+
+		}
+
+		&_header {
+			padding-bottom: 30px;
+		}
+
+		&_nav {
+			list-style: none;
+			padding: 0;
+
+			&_item {
+				line-height: 3;
+
+				i {
+					margin-right: 20px;
+					font-size: 14px;
+				}
+
+				a {
+					color: #fff;
+					transition: all .4s ease-out;
+
+					&:hover {
+						color: $primary_text_color;
+					}
+				}
+			}
+		}
+
+		&_about {
+			background-color: $secondary_color;
+			padding-left: 70px;
+			padding-right: 70px;
+			padding-bottom: 100px;
+			padding-top: 80px;
+
+			p {
+				padding-bottom: 45px;
+			}
+
+			&_header {
+				padding-bottom: 45px;
+			}
+		}
+
+		&_call {
+			a {
+				font-weight: 600;
+				color: #fff;
+			}
+		}
+
+		&_copy {
+			color: $primary_text_color;
+			margin-top: -25px;
+
+			p {
+				margin-bottom: 0;
+			}
+
+			a {
+				color: $primary_text_color;
+				transition: all .5s ease-out;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+}

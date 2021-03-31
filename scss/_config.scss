@@ -1,0 +1,69 @@
+$primary_color : #177165;
+$secondary_color: #23786d;
+$primary_text_color: #a4d6cf;
+$secondary_text_color: #777;
+$border_primary: rgba($primary_text_color, .2);
+
+@mixin transiction-ease {
+	transition: all .8s ease;
+}
+
+@mixin global_btn($color, $background, $border) {
+	display: inline-block;
+	background: $background;
+	border: 2px solid $border;
+	color: $color;
+	padding: 20px 50px;
+	@include transiction-ease;
+	transition-duration: .4s;
+	font-weight: 500;
+
+	span {
+		padding-left: 10px;
+		color: $color !important;
+		@include transiction-ease;
+		transition-duration: .4s;
+	}
+
+	&:hover {
+		background: $color;
+		color: $background;
+
+		span {
+			color: $background !important;
+		}
+	}
+
+
+	@media (max-width: 767px){
+		padding: 15px 35px;
+	}
+}
+
+
+@mixin paragraph_border($padding, $color) {
+	position: relative;
+	padding-left: $padding;
+	color: $color;
+	display: inline-block;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		height: 1px;
+		width: $padding - 10px;
+		background: $color;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 14px !important;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 14px !important;
+	}
+}

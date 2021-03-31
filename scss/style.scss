@@ -1,0 +1,70 @@
+@import "config";
+@import "nav";
+@import "home";
+@import "slider";
+@import "animation";
+@import "responsive";
+@import "preloader";
+
+
+
+// global
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #fff;
+}
+
+:focus {
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.primary_text {
+	color: $primary_color
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Playfair Display", serif;
+}
+
+.text-gold {
+	color: #ffa200 !important;
+}
+
+
+.to_top {
+	position: fixed;
+	bottom: -100%;
+	right: 50px;
+	color: #fff;
+	z-index: 99;
+	background-color: $primary_color;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 50px;
+	box-shadow: 0 0 12px -2px rgba(255, 255, 255, .4);
+	opacity: .6;
+	@include transiction-ease;
+
+
+	&:hover {
+		opacity: 1;
+		color: #fff;
+	}
+
+}

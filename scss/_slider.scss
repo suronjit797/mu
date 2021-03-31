@@ -1,0 +1,519 @@
+.hero {
+  .swiper-slide {
+    &_sub_body {
+
+      @include paragraph_border(45px, $primary_text_color);
+      font-size: 18px;
+      transform: translateY(-200%);
+    }
+
+    &_text_body {
+      font-size: 3.1rem;
+      line-height: 1.2;
+      margin-bottom: 40px;
+      transform: translateY(-200%);
+
+
+      span {
+        font-size: 15px;
+        color: $primary_text_color;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+    }
+
+    &_btn_body {
+      transform: translateY(-200%);
+      @include global_btn($secondary_color, #fff, #fff);
+
+    }
+
+    &_sub,
+    &_text,
+    &_btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &-active {
+
+      .swiper-slide_sub_body {
+        transform: translateY(0);
+        @include transiction-ease;
+      }
+
+      .swiper-slide_text_body {
+        transform: translateY(0);
+        @include transiction-ease;
+      }
+
+      .swiper-slide_btn_body {
+        transform: translateY(0);
+        @include transiction-ease;
+      }
+    }
+  }
+
+  .hero_slider {
+    .swiper-container {
+      width: 100%;
+      min-height: 100vh;
+      padding-top: 150px;
+      overflow: visible;
+      background: $primary_color;
+
+      .swiper-wrapper {
+        overflow-y: visible;
+
+        // slider
+        .swiper-slide {
+          color: #fff;
+
+          &>.container {
+            margin-bottom: -150px;
+          }
+
+          .hero_slider_img {
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+            @include transiction-ease;
+            padding-left: 5rem;
+          }
+
+          &-active {
+            .hero_slider_img {
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+              @include transiction-ease;
+            }
+          }
+        }
+      }
+    }
+
+    // bullets
+
+    .swiper-pagination {
+      text-align: left;
+      position: relative;
+      padding: 35px 0;
+
+      .swiper-pagination-bullet {
+        margin-right: 30px;
+        padding-right: 50px;
+        font-size: 3.5rem;
+        color: $primary_color;
+        font-weight: 200;
+        height: auto;
+        width: auto;
+        background: transparent;
+        position: relative;
+        @include transiction-ease;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          margin: auto;
+          height: 1px;
+          width: 0px;
+          background: $primary_color;
+          @include transiction-ease;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          margin: auto;
+          height: 1px;
+          width: 40px;
+          background: $primary_color;
+          @include transiction-ease;
+        }
+
+        &-active {
+          &::before {
+            background: #caddda;
+          }
+
+          &::after {
+            width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// services slider
+
+.services {
+
+  &_slider {
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      padding: 100px 0;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+    }
+
+    &_img {
+      overflow: hidden;
+
+      img {
+        @include transiction-ease;
+
+        &:hover {
+          transform: rotate(5deg) scale(1.1);
+        }
+      }
+    }
+  }
+
+  &_details {
+    p {
+      @include paragraph_border(40px, $secondary_text_color);
+    }
+
+    h4 {
+      color: $primary_color;
+    }
+  }
+
+  &_btn {
+    @include global_btn($primary_color, #e1f4f2, $primary_color)
+  }
+
+}
+
+// team slider
+
+.team {
+  &_slider {
+    padding: 100px 0;
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &_img {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    img {
+      @include transiction-ease;
+    }
+
+    &_social {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      transition: ease-out;
+
+      a {
+        color: $primary_color;
+        background: #e1f4f2;
+        padding: 20px 30px;
+        @include transiction-ease;
+        border: 1px solid $border_primary;
+        transform: translateY(100%);
+        opacity: 0;
+
+        &:hover {
+          background: $primary_color;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &_sub {
+    padding-top: 50px;
+
+    &_post {
+      @include paragraph_border(45px, $secondary_text_color)
+    }
+
+    h4 {
+      margin-bottom: 20px;
+      color: $primary_color;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    &_details {
+      color: $secondary_text_color;
+    }
+  }
+
+  &_body {
+    &:hover {
+      img {
+        transform: rotate(5deg) scale(1.2);
+      }
+
+      .team_img_social a {
+        transform: translateY(0);
+        opacity: 1;
+
+
+      }
+    }
+
+    @for $i from 1 through 4 {
+      .team_img_social a:nth-child(#{$i}) {
+        transition: all .3 + ($i * 0.1s) ease-out;
+      }
+    }
+  }
+}
+
+// projects slider
+.projects {
+
+  &_header {
+    p {
+      @include paragraph_border(45px, #777)
+    }
+
+    h2 {
+      color: $primary_color;
+      font-size: 48px;
+    }
+  }
+
+  &_slider {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    overflow: hidden;
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+
+      &-active {
+        .projects_slider_list {
+          opacity: 1;
+          left: 0;
+        }
+      }
+    }
+
+    &_inner {
+      overflow: hidden;
+      display: grid;
+      place-content: center;
+      position: relative;
+
+      img {
+        min-height: 550px;
+      }
+    }
+
+    &_list {
+      position: absolute;
+      left: -100%;
+      bottom: 0;
+      background: $primary_color;
+      padding: 60px 50px;
+      text-align: left;
+      opacity: 0;
+      @include transiction-ease;
+
+      p {
+        color: $primary_text_color;
+      }
+
+      h4 {
+        color: #fff;
+      }
+    }
+
+
+  }
+
+  &_arrows {
+    padding-top: 60px;
+    .arrows_main {
+      border: 2px solid $border_primary;
+      color: $primary_text_color;
+      height: 70px;
+      width: 80px;
+      line-height: 70px;
+      text-align: center;
+      display: inline-block;
+      transition: .4s ease-out;
+
+      span {
+        display: none;
+        padding: 0 10px;
+        transition: .4s ease-out;
+      }
+
+      &:hover {
+        width: 200px;
+        height: 70px;
+        border-color: $primary_color;
+        color: $primary_color;
+
+        span {
+          display: inline-block;
+          opacity: 1;
+          font-weight: 500;
+        }
+      }
+
+      &:nth-child(1) {
+        margin-right: 30px;
+      }
+    }
+
+
+
+
+  }
+
+}
+
+// client slider
+.client {
+  padding: 100px 0;
+  background: rgba($primary_text_color, .4);
+
+  &_header {
+    text-align: center;
+    padding: 100px 0;
+
+    p {
+      @include paragraph_border(45px, #777);
+      display: inline-block;
+    }
+
+    h2 {
+      color: $primary_color;
+      font-size: 48px;
+    }
+  }
+
+  &_slider {
+
+    padding-bottom: 100px;
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      padding: 100px 0;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .swiper-scrollbar {
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 70%;
+      height: 10px;
+      border-radius: 0;
+      background: #fff;
+
+      &-drag {
+        border-radius: 0;
+        background: $primary_color;
+        width: 30% !important;
+      }
+    }
+
+  }
+
+
+  &_body {
+    padding: 50px;
+    background: #fff;
+    position: relative;
+
+    h5 {
+      font-size: 22px;
+      color: $primary_color;
+      line-height: 1.6;
+    }
+  }
+
+  &_quota {
+    color: $primary_color;
+    font-family: "Playfair Display", serif;
+    font-size: 700px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: .9;
+    opacity: .1;
+    font-weight: 500;
+  }
+
+  &_footer {
+    &_left {
+      p {
+        @include paragraph_border(45px, #777);
+      }
+
+      h3 {
+        color: $primary_color;
+        margin-bottom: 0;
+        font-size: 26px;
+      }
+
+    }
+
+    &_right{
+      i{
+        font-size: 14px;
+        padding: 0 3px;
+        color: #c7bfb2;
+      }
+    }
+  }
+}
+
+// brand slider
+.brand {
+  background-color: rgba($primary_text_color, .1);
+  padding: 100px 0;
+}

@@ -1,0 +1,23 @@
+.preloader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: grid;
+	place-content: center;
+	height: 100%;
+	width: 100%;
+	z-index: 9999;
+	background-color: #fff;
+
+	&_parants{
+		perspective: 100px;
+	}
+
+	&_animation{
+		height: 50px;
+		width: 50px;
+		border-radius: 5px;
+		background-color: $primary_color;
+		animation: preloader_animation 2s linear infinite;
+	}
+}
