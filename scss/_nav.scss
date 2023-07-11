@@ -179,7 +179,7 @@ nav {
 		z-index: 11;
 		top: 0;
 		left: 0;
-		transform: translateX(-100%);
+		transform: translateX(-150%);
 		@include transiction-ease;
 		transition-duration: .4s;
 		display: flex;

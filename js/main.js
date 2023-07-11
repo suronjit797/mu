@@ -59,11 +59,11 @@ navBtn.addEventListener('click', function () {
 
 subHeader.addEventListener('click', function () {
 	mobileNav.classList.remove('nav_show')
-	html.style.overflow = 'scroll'
+	html.style.overflowY = 'auto'
 })
 subBlack.addEventListener('click', function () {
 	mobileNav.classList.remove('nav_show')
-	html.style.overflow = 'scroll'
+	html.style.overflowY = 'auto'
 })
 
 
